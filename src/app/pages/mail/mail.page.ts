@@ -45,6 +45,16 @@ export class MailPage implements OnInit {
     return '#' + '00000'.substring(0, 6 - c.length) + c;
   }
  
+  async openAccount(ev) {
+    const popover = await this.popoverCtrl.create({
+      component: AccountPage,
+      event: ev,
+      cssClass: 'custom-popover'
+    });
+   
+    await popover.present();
+  }
+
   doRefresh(ev) {
     setTimeout(() => {
       ev.target.complete();
